@@ -12,7 +12,7 @@
     <nav class="navbar navbar-inverse">
       <div class="container-fluid">
         <div class="navbar-header">
-        <a href="/" class="navbar-left"><img src="favicon.ico" style="width:50px;height:50px;"></a>
+        <a href="/" class="navbar-left"><img src="img/favicon.ico" style="width:50px;height:50px;"></a>
         </div>
         <ul class="nav navbar-nav">
           <li class="active"><a href="/">Campeonato Mundial de CS - Agrodefesa</a></li>
@@ -49,7 +49,7 @@
             $randomMapIndex = array_rand($_SESSION["maps"]);
             $randomMap = key($_SESSION["maps"][$randomMapIndex]);
             $randomMapCsName = $_SESSION["maps"][$randomMapIndex][$randomMap];
-            $chosenMap = "<h3>Fase escolhida: {$randomMap}</h3>";
+            $chosenMap = "<h3>Fase escolhida: {$randomMap}</h3><img src='img/{$randomMapCsName}.jpg' style='width:236px;height:200px;'>";
 
             unset($_SESSION["maps"][$randomMapIndex]);
           } else if (isset($_POST['resetar'])) {
