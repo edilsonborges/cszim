@@ -49,7 +49,7 @@
             $randomMapIndex = array_rand($_SESSION["maps"]);
             $randomMap = key($_SESSION["maps"][$randomMapIndex]);
             $randomMapCsName = $_SESSION["maps"][$randomMapIndex][$randomMap];
-            $chosenMap = "<h3>Fase escolhida: {$randomMap}</h3><img src='img/{$randomMapCsName}.jpg' style='width:236px;height:200px;'><br>";
+            $chosenMap = "<h3>Fase escolhida: {$randomMap}</h3><img src='img/{$randomMapCsName}.jpg'><br>";
 
             unset($_SESSION["maps"][$randomMapIndex]);
           } else if (isset($_POST['resetar'])) {
