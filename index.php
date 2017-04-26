@@ -16,12 +16,12 @@
         </div>
         <ul class="nav navbar-nav">
           <li class="active"><a href="/">Campeonato Mundial de CS - Agrodefesa</a></li>
+          <li class="active"><a href="/regras.php">Regras</a></li>
         </ul>
       </div>
     </nav>
     <div class="container">
       <?php
-
         function initMaps() {
           $_SESSION["maps"] = [
             0 => ["Mirage" => "de_cpl_strike"],
@@ -37,37 +37,31 @@
             10 => ["Compound" => "cs_compound"]
           ];
         }
-
         session_start();
-
         if (!isset($_SESSION["maps"])) {
           initMaps();
         }
-
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
           if (isset($_POST['escolher'])) {
             $randomMapIndex = array_rand($_SESSION["maps"]);
             $randomMap = key($_SESSION["maps"][$randomMapIndex]);
             $randomMapCsName = $_SESSION["maps"][$randomMapIndex][$randomMap];
             $chosenMap = "<h3>Fase escolhida: {$randomMap}</h3><img src='img/{$randomMapCsName}.jpg'><br>";
-
             unset($_SESSION["maps"][$randomMapIndex]);
           } else if (isset($_POST['resetar'])) {
             unset($_SESSION["maps"]);
             initMaps();
           }
         }
-
-        $mapNames = "<div style='display:block;height:200px'><ul>";
-        foreach ($_SESSION["maps"] as $key => $mapArray) {
-          $mapNames .= "<li>".key($mapArray) . " - " . $_SESSION["maps"][$key][key($mapArray)] . "</li>\n";
-        }
-	$mapNames .= "</ul></div>";
-
+      $mapNames = "<div style='display:block;height:200px'><ul>";
+      foreach ($_SESSION["maps"] as $key => $mapArray) {
+        $mapNames .= "<li>".key($mapArray) . " - " . $_SESSION["maps"][$key][key($mapArray)] . "</li>\n";
+      }
+      $mapNames .= "</ul></div>";
       ?>
       <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">  
         <h2>Mapas Disponíveis:</h2>
-  	<?= $mapNames ?>
+  	      <?= $mapNames ?>
         <br><br>
         <input type="submit" class="btn btn-default" name="escolher" value="Escolher Fase!">  
         <input type="submit" class="btn btn-danger" name="resetar" value="Resetar Aplicativo!">  
