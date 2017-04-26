@@ -24,12 +24,11 @@
     <h2>Regras</h2>
     <ul>
         <li>Terça-feira é o dia oficial das partidas, mas podem ter outros dias sem problemas</li>
-        <li>CT sempre escolhe o mapa</li>
+        <li>Fases de 7 rounds</li>
+        <li>Mapas aleatórios</li>
         <li>CT/Terror alternadamente entre os rounds</li>
         <li>CT/Terror alterna por dia</li>
-        <li>Alterna o lado entre os mapas</li>
         <li>Partidas valem 3 pontos</li>
-        <li>Última do dia vale 4 pontos</li>
         <li>Pontuação fecha no último dia de cada mês, coroando o time vencedor mensal</li>
         <li>Que vença o melhor time ou o pior time</li>
         <li>Por dia, pode ter quantos jogos der</li>
