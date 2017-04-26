@@ -4,6 +4,7 @@
      <title>CS - Agrodefesa</title>
      <meta charset="utf-8">
      <meta name="viewport" content="width=device-width, initial-scale=1">
+     <link rel="icon" href="img/favicon.ico" type="image/x-icon" />
      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -17,6 +18,7 @@
         <ul class="nav navbar-nav">
           <li class="active"><a href="/">Campeonato Mundial de CS - Agrodefesa</a></li>
           <li class="active"><a href="/regras.php">Regras</a></li>
+          <li class="active"><a href="/placar.php">Placar</a></li>
         </ul>
       </div>
     </nav>
@@ -26,15 +28,16 @@
           $_SESSION["maps"] = [
             0 => ["Mirage" => "de_cpl_strike"],
             1 => ["Deserto" => "de_desertcityfixed"],
-            2 => ["Dust 2" => "de_dust2"],
-            3 => ["Train" => "de_train"],
-            4 => ["Tides" => "de_tides"],
-            5 => ["Aztec" => "de_aztec"],
-            6 => ["Galeria" => "de_bit_gallery"],
-            7 => ["Westcoast" => "de_westcoast"],
-            8 => ["Abbotabad" => "de_abbotabad"],
-            9 => ["Villa" => "de_villa"],
-            10 => ["Compound" => "cs_compound"]
+            2 => ["Aztec" => "de_aztec"],
+            3 => ["Galeria" => "de_bit_gallery"],
+            4 => ["Westcoast" => "de_westcoast"],
+            5 => ["Abbotabad" => "de_abbotabad"],
+            6 => ["Villa" => "de_villa"],
+            7 => ["Compound" => "cs_compound"],
+            8 => ["Asia" => "de_asia"],
+            9 => ["Slummi" => "de_slummi"],
+            10 => ["Tides" => "de_tides"],
+            11 => ["Tuscan" => "de_cpl_mill"]
           ];
         }
         session_start();
@@ -53,7 +56,7 @@
             initMaps();
           }
         }
-      $mapNames = "<div style='display:block;height:200px'><ul>";
+      $mapNames = "<div style='display:block;height:220px'><ul>";
       foreach ($_SESSION["maps"] as $key => $mapArray) {
         $mapNames .= "<li>".key($mapArray) . " - " . $_SESSION["maps"][$key][key($mapArray)] . "</li>\n";
       }

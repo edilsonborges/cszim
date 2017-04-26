@@ -22,20 +22,27 @@
       </div>
     </nav>
     <div class="container">
-    <h2>Regras</h2>
+    <h2>Pontuação Atual:</h2>
+    <br>
+    <h2>Março</h2>
     <ul>
-        <li>Terça-feira é o dia oficial das partidas, mas podem ter outros dias sem problemas</li>
-        <li>Fases de 7 rounds</li>
-        <li>Mapas aleatórios</li>
-        <li>CT/Terror alternadamente entre os rounds</li>
-        <li>CT/Terror alterna por dia</li>
-        <li>Partidas valem 3 pontos</li>
-        <li>Pontuação fecha no último dia de cada mês, coroando o time vencedor mensal</li>
-        <li>Que vença o melhor time ou o pior time</li>
-        <li>Por dia, pode ter quantos jogos der</li>
-        <li>Após cada mês existe a janela de transferência, onde os times podem mudar</li>
-        <li>Na última semana de cada mês, é obrigatória uma partida</li>
-        <li>Não pode repetir a fase</li>
+        <li>DNS: W, D, M - 43 - Equipe campeã</li>
+        <li>BONS: E, N, R - 10</li>
+    </ul>
+    <h2>Abril</h2>
+    <ul>
+        <li>Igreja Católica: E, M - 45 - Equipe campeã</li>
+        <li>Candoblé: D, N, R, W - 33</li>
+    </ul>
+    <h2>Maio</h2>
+    <ul>
+        <li>Joalheria: R, M - 0</li>
+        <li>Ladrões: D, E, N, W - 0</li>
+    </ul>
+    <h2>Junho</h2>
+    <ul>
+        <li>tbd</li>
+        <li>tbd</li>
     </ul>
     </div>
   </body>
