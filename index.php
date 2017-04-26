@@ -58,23 +58,20 @@
           }
         }
 
-        $mapNames = "";
+        $mapNames = "<div style='display:block;height:200px'><ul>";
         foreach ($_SESSION["maps"] as $key => $mapArray) {
-          $mapNames .= key($mapArray) . " - " . $_SESSION["maps"][$key][key($mapArray)] . "\n";
+          $mapNames .= "<li>".key($mapArray) . " - " . $_SESSION["maps"][$key][key($mapArray)] . "</li>\n";
         }
+	$mapNames .= "</ul></div>";
 
       ?>
       <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">  
         <h2>Mapas Disponíveis:</h2>
-        <textarea style="resize: none;" name="comment" value="comment" rows="15" cols="135"><?= $mapNames ?></textarea>
-        <br>
-        <br>
+  	<?= $mapNames ?>
+        <br><br>
         <input type="submit" class="btn btn-default" name="escolher" value="Escolher Fase!">  
         <input type="submit" class="btn btn-danger" name="resetar" value="Resetar Aplicativo!">  
       </form>
-
-      <br>
-
       <?php if (isset($chosenMap)) { ?>
         <?= $chosenMap ?>
         <br>
