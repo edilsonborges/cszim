@@ -6,19 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="img/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   </head>
   <body>
     <nav class="navbar navbar-inverse">
       <div class="container">
-        <div class="navbar-header">
         <a href="/" class="navbar-left"><img src="img/favicon.ico" style="width:50px;height:50px;"></a>
-        </div>
         <ul class="nav navbar-nav">
           <li class="active"><a href="/">Campeonato Mundial de CS - Agrodefesa</a></li>
           <li class="active"><a href="/placar.php">Placar</a></li>
           <li class="active"><a href="/regras.php">Regras</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="https://github.com/EdilsonBorges/cszim/releases/tag/v1.0.0-alpha"><i class="fa fa-github" aria-hidden="true"></i> v1.0.0-alpha</a></li>
         </ul>
       </div>
     </nav>
@@ -49,7 +51,7 @@
               $randomMapIndex = array_rand($_SESSION["maps"]);
               $randomMap = key($_SESSION["maps"][$randomMapIndex]);
               $randomMapCsName = $_SESSION["maps"][$randomMapIndex][$randomMap];
-              $chosenMap = "<h3>Fase escolhida: {$randomMap}</h3><h4>({$randomMapCsName})</h4><img src='img/{$randomMapCsName}.jpg'><br>";
+              $chosenMap = "<h3>Fase escolhida: {$randomMap}</h3><h4>({$randomMapCsName})</h4><br><img src='img/{$randomMapCsName}.jpg'><br>";
               unset($_SESSION["maps"][$randomMapIndex]);
             } else if (isset($_POST['resetar']) || empty($_SESSION["maps"])) {
               unset($_SESSION["maps"]);
