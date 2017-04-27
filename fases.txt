@@ -1,8 +1,0 @@
-Mirage - de_cpl_strike
-Deserto - de_desertcityfixed
-Aztec - de_aztec
-Galeria - de_bit_gallery
-Westcoast - de_westcoast
-Abbotabad - de_abbotabad
-Villa - de_villa
-Compound - cs_compound

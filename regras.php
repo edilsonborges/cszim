@@ -10,14 +10,14 @@
   </head>
   <body>
     <nav class="navbar navbar-inverse">
-      <div class="container-fluid">
+      <div class="container">
         <div class="navbar-header">
         <a href="/" class="navbar-left"><img src="img/favicon.ico" style="width:50px;height:50px;"></a>
         </div>
         <ul class="nav navbar-nav">
           <li class="active"><a href="/">Campeonato Mundial de CS - Agrodefesa</a></li>
-          <li class="active"><a href="/regras.php">Regras</a></li>
           <li class="active"><a href="/placar.php">Placar</a></li>
+          <li class="active"><a href="/regras.php">Regras</a></li>
         </ul>
       </div>
     </nav>

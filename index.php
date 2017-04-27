@@ -1,82 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-     <title>CS - Agrodefesa</title>
-     <meta charset="utf-8">
-     <meta name="viewport" content="width=device-width, initial-scale=1">
-     <link rel="icon" href="img/favicon.ico" type="image/x-icon" />
-     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <title>CS - Agrodefesa</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   </head>
   <body>
     <nav class="navbar navbar-inverse">
-      <div class="container-fluid">
+      <div class="container">
         <div class="navbar-header">
         <a href="/" class="navbar-left"><img src="img/favicon.ico" style="width:50px;height:50px;"></a>
         </div>
         <ul class="nav navbar-nav">
           <li class="active"><a href="/">Campeonato Mundial de CS - Agrodefesa</a></li>
-          <li class="active"><a href="/regras.php">Regras</a></li>
           <li class="active"><a href="/placar.php">Placar</a></li>
+          <li class="active"><a href="/regras.php">Regras</a></li>
         </ul>
       </div>
     </nav>
     <div class="container">
-      <?php
-        function initMaps() {
-          $_SESSION["maps"] = [
-            0 => ["Mirage" => "de_cpl_strike"],
-            1 => ["Deserto" => "de_desertcityfixed"],
-            2 => ["Aztec" => "de_aztec"],
-            3 => ["Galeria" => "de_bit_gallery"],
-            4 => ["Westcoast" => "de_westcoast"],
-            5 => ["Abbotabad" => "de_abbotabad"],
-            6 => ["Villa" => "de_villa"],
-            7 => ["Compound" => "cs_compound"],
-            8 => ["Asia" => "de_asia"],
-            9 => ["Slummi" => "de_slummi"],
-            10 => ["Tides" => "de_tides"],
-            11 => ["Tuscan" => "de_cpl_mill"]
-          ];
-        }
-        session_start();
-        if (!isset($_SESSION["maps"])) {
-          initMaps();
-        }
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
-          if (isset($_POST['escolher'])) {
-            $randomMapIndex = array_rand($_SESSION["maps"]);
-            $randomMap = key($_SESSION["maps"][$randomMapIndex]);
-            $randomMapCsName = $_SESSION["maps"][$randomMapIndex][$randomMap];
-            $chosenMap = "<h3>Fase escolhida: {$randomMap}</h3><img src='img/{$randomMapCsName}.jpg'><br>";
-            unset($_SESSION["maps"][$randomMapIndex]);
-          } else if (isset($_POST['resetar'])) {
-            unset($_SESSION["maps"]);
+        <?php
+          function initMaps() {
+            $_SESSION["maps"] = [
+              0 => ["Mirage" => "de_cpl_strike"],
+              1 => ["Deserto" => "de_desertcityfixed"],
+              2 => ["Aztec" => "de_aztec"],
+              3 => ["Galeria" => "de_bit_gallery"],
+              4 => ["Westcoast" => "de_westcoast"],
+              5 => ["Abbotabad" => "de_abbotabad"],
+              6 => ["Villa" => "de_villa"],
+              7 => ["Compound" => "cs_compound"],
+              8 => ["Asia" => "de_asia"],
+              9 => ["Slummi" => "de_slummi"],
+              10 => ["Tides" => "de_tides"],
+              11 => ["Tuscan" => "de_cpl_mill"]
+            ];
+          }
+          session_start();
+          if (!isset($_SESSION["maps"])) {
             initMaps();
           }
+          if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            if (isset($_POST['escolher']) && !empty($_SESSION["maps"])) {
+              $randomMapIndex = array_rand($_SESSION["maps"]);
+              $randomMap = key($_SESSION["maps"][$randomMapIndex]);
+              $randomMapCsName = $_SESSION["maps"][$randomMapIndex][$randomMap];
+              $chosenMap = "<h3>Fase escolhida: {$randomMap}</h3><h4>({$randomMapCsName})</h4><img src='img/{$randomMapCsName}.jpg'><br>";
+              unset($_SESSION["maps"][$randomMapIndex]);
+            } else if (isset($_POST['resetar']) || empty($_SESSION["maps"])) {
+              unset($_SESSION["maps"]);
+              initMaps();
+            }
         }
-      $mapNames = "<div style='display:block;height:220px'><ul>";
-      foreach ($_SESSION["maps"] as $key => $mapArray) {
-        $mapNames .= "<li>".key($mapArray) . " - " . $_SESSION["maps"][$key][key($mapArray)] . "</li>\n";
-      }
-      $mapNames .= "</ul></div>";
-      ?>
-      <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">  
-        <h2>Mapas Disponíveis:</h2>
-  	      <?= $mapNames ?>
-        <br><br>
-        <input type="submit" class="btn btn-default" name="escolher" value="Escolher Fase!">  
-        <input type="submit" class="btn btn-danger" name="resetar" value="Resetar Aplicativo!">  
-      </form>
-      <?php if (isset($chosenMap)) { ?>
-        <?= $chosenMap ?>
-        <br>
-        <a class="btn btn-primary" href="steam://rungameid/240// +map <?= $randomMapCsName ?>">
-          Abrir o Mapa Automaticamente
-        </a>
-      <?php } ?>
-
-    </div>
+        $mapNames = "<div style='display:block;height:220px'><ul>";
+        foreach ($_SESSION["maps"] as $key => $mapArray) {
+          $mapNames .= "<li>".key($mapArray) . " - " . $_SESSION["maps"][$key][key($mapArray)] . "</li>\n";
+        }
+        $mapNames .= "</ul></div>";
+        ?>
+        <div class="row">
+          <div class="col-lg-4">
+          <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">  
+            <h2>Mapas Disponíveis:</h2>
+              <?= $mapNames ?>
+              <br><br>
+              <input type="submit" class="btn btn-default" name="escolher" value="Escolher Fase!">  
+              <input type="submit" class="btn btn-danger" name="resetar" value="Resetar Aplicativo!">  
+          </form>
+        </div>
+      <div class="col-lg-4">
+        <?php if (isset($chosenMap)) { ?>
+          <?= $chosenMap ?>
+          <br>
+          <a class="btn btn-primary" href="steam://rungameid/240// +map <?= $randomMapCsName ?>">
+            Abrir o Mapa Automaticamente
+          </a>
+        <?php } ?>
+        </div>
+        </div>
   </body>
 </html>
