@@ -42,11 +42,6 @@
         <li>Joalheria: R, M - 0</li>
         <li>Ladrões: D, E, N, W - 0</li>
     </ul>
-    <h2>Junho</h2>
-    <ul>
-        <li>tbd</li>
-        <li>tbd</li>
-    </ul>
     </div>
   </body>
 </html>
