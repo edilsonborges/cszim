@@ -39,6 +39,7 @@
               10 => ["Tides" => "de_tides"],
               11 => ["Tuscan" => "de_cpl_mill"]
             ];
+            shuffle($_SESSION["maps"]);
           }
           session_start();
           if (!isset($_SESSION["maps"])) {
