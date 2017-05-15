@@ -103,6 +103,19 @@
             <?= $sortedNames ?>
           </div>
         </div>
+        <div class="row">
+          <div class="col-lg-12">
+            <h2>Matadores:</h2>
+          </div>
+          <div class="col-lg-12" align="center">
+            <img src='img/users/danilo.jpeg' width='115px' height='115px' class='img-circle'>
+            <img src='img/users/edilson.jpeg' width='115px' height='115px' class='img-circle'>
+            <img src='img/users/murillo.jpeg' width='115px' height='115px' class='img-circle'>
+            <img src='img/users/naiara.jpeg' width='115px' height='115px' class='img-circle'>
+            <img src='img/users/ricardo.jpeg' width='115px' height='115px' class='img-circle'>
+            <img src='img/users/wemerson.jpeg' width='115px' height='115px' class='img-circle'>
+          </div>
+        </div>
     <script type="text/javascript" src="/js/jquery.min.js"></script>
     <script type="text/javascript" src="/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.0.47/jquery.fancybox.min.css" />
