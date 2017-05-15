@@ -57,7 +57,7 @@
               $randomMapIndex = array_rand($_SESSION["maps"]);
               $randomMap = key($_SESSION["maps"][$randomMapIndex]);
               $randomMapCsName = $_SESSION["maps"][$randomMapIndex][$randomMap];
-              $chosenMap = "<h2>Fase escolhida:</h2><ul><li>{$randomMap} - {$randomMapCsName}</li></ul><br><img src='img/{$randomMapCsName}.jpg' width='200px' height='200px'><br>";
+              $chosenMap = "<h4 id='chosen-map'>{$randomMap} - {$randomMapCsName}</h4><br><img id='chosen-img' src='img/{$randomMapCsName}.jpg' style='margin-top:30px' width='237px' height='200px'><br>";
               $_SESSION["choose"][$randomMap] = $randomMapCsName;
               unset($_SESSION["maps"][$randomMapIndex]);
             } else if (isset($_POST['resetar']) || empty($_SESSION["maps"])) {
@@ -65,7 +65,7 @@
               initMaps();
             }
         }
-        $mapNames = "<div style='display:block;'><ul>";
+        $mapNames = "<div style='display:block;height:338px'><ul style='list-style-type: decimal'>";
         foreach ($_SESSION["maps"] as $key => $mapArray) {
           $mapNames .= "<li>".key($mapArray) . " - " . $_SESSION["maps"][$key][key($mapArray)] . "</li>\n";
         }
@@ -85,15 +85,16 @@
               <h2>Mapas Disponíveis:</h2>
                 <?= $mapNames ?>
                 <br><br>
-                <input type="submit" class="btn btn-default" name="escolher" value="Escolher Fase!">  
-                <input type="submit" class="btn btn-danger" name="resetar" value="Resetar Aplicativo!">  
+                <input type="submit" class="btn btn-default" name="escolher" id="escolher" value="Escolher Fase!">  
+                <input type="submit" class="btn btn-danger" name="resetar" id="resetar" value="Resetar Aplicativo!">  
             </form>
           </div>
           <div class="col-lg-4">
+          <h2>Fase escolhida:</h2>
           <?php if (isset($chosenMap)) { ?>
             <?= $chosenMap ?>
             <br>
-            <a class="btn btn-primary" href="steam://rungameid/240// +map <?= $randomMapCsName ?>">
+            <a class="btn btn-primary" href="steam://rungameid/240// +map <?= $randomMapCsName ?>" style='margin-top:21.8%'>
               Abrir o Mapa Automaticamente
             </a>
           <?php } ?>
@@ -118,6 +119,7 @@
         </div>
     <script type="text/javascript" src="/js/jquery.min.js"></script>
     <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/js/cszim.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.0.47/jquery.fancybox.min.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.0.47/jquery.fancybox.min.js"></script>
   </body>
