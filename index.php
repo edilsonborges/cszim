@@ -27,17 +27,23 @@
           function initMaps() {
             $_SESSION["maps"] = [
               0 => ["Mirage" => "de_cpl_strike"],
-              1 => ["Deserto" => "de_desertcityfixed"],
+              1 => ["Desertim" => "de_desertcityfixed"],
               2 => ["Aztec" => "de_aztec"],
               3 => ["Galeria" => "de_bit_gallery"],
-              4 => ["Westcoast" => "de_westcoast"],
+              4 => ["Corcel Branco" => "de_westcoast"],
               5 => ["Abbotabad" => "de_abbotabad"],
               6 => ["Villa" => "de_villa"],
               7 => ["Compound" => "cs_compound"],
               8 => ["Asia" => "de_asia"],
               9 => ["Slummi" => "de_slummi"],
               10 => ["Tides" => "de_tides"],
-              11 => ["Tuscan" => "de_cpl_mill"]
+              11 => ["Tuscan" => "de_cpl_mill"],
+              12 => ["Velho Oeste" => "de_outlaws"],
+              13 => ["Vila de Inverno" => "de_winter_village"],
+              14 => ["Deserto da Feira" => "de_yacer_v3"],
+              15 => ["Diesel" => "de_cevo_diesel"],
+              16 => ["Roma" => "de_roma_aimstyle"],
+              17 => ["Mansão dos Refém" => "cs_hacienda"]
             ];
             shuffle($_SESSION["maps"]);
           }
