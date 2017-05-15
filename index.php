@@ -71,12 +71,13 @@
         }
         $mapNames .= "</ul></div>";
 
-        $sortedNames = "<div style='display:block;'><ul>";
+        $sortedNames = "<div class='row'>";
         $diff = $_SESSION["choose"];
         foreach ($diff as $key => $mapArray) {
-          $sortedNames .= "<li>".$key . " - " . $mapArray . "</li>\n";
+          $chosenName = (strlen($key) > 13) ? substr($key,0,10).'...' : $key;
+          $sortedNames .= "<div class='col-lg-4'><a data-fancybox='gallery' href='img/{$mapArray}.jpg' data-caption='{$key} - {$mapArray}'>{$chosenName}<br><img src='img/{$mapArray}.jpg' title='{$key} - {$mapArray}' width='50px' height='50px'></a></div>\n";
         }
-        $sortedNames .= "</ul></div>";
+        $sortedNames .= "</div>";
         ?>
         <div class="row">
           <div class="col-lg-4">
@@ -99,12 +100,14 @@
           <?php } ?>
           </div>
           <div class="col-lg-4">
-              <h2>Mapas Sorteados:</h2>
-              <?= $sortedNames ?>
+            <h2>Mapas Sorteados:</h2>
+            <?= $sortedNames ?>
           </div>
         </div>
     <script type="text/javascript" src="/js/jquery.min.js"></script>
     <script type="text/javascript" src="/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="/js/cszim.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.0.47/jquery.fancybox.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.0.47/jquery.fancybox.min.js"></script>
   </body>
 </html>
