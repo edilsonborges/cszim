@@ -45,6 +45,7 @@
               16 => ["Roma" => "de_roma_aimstyle"],
               17 => ["Mansão dos Refém" => "cs_hacienda"]
             ];
+            $_SESSION["choose"] = [];
             shuffle($_SESSION["maps"]);
           }
           session_start();
@@ -56,7 +57,8 @@
               $randomMapIndex = array_rand($_SESSION["maps"]);
               $randomMap = key($_SESSION["maps"][$randomMapIndex]);
               $randomMapCsName = $_SESSION["maps"][$randomMapIndex][$randomMap];
-              $chosenMap = "<h3>Fase escolhida: {$randomMap}</h3><h4>({$randomMapCsName})</h4><br><img src='img/{$randomMapCsName}.jpg'><br>";
+              $chosenMap = "<h2>Fase escolhida:</h2><ul><li>{$randomMap} - {$randomMapCsName}</li></ul><br><img src='img/{$randomMapCsName}.jpg' width='200px' height='200px'><br>";
+              $_SESSION["choose"][$randomMap] = $randomMapCsName;
               unset($_SESSION["maps"][$randomMapIndex]);
             } else if (isset($_POST['resetar']) || empty($_SESSION["maps"])) {
               unset($_SESSION["maps"]);
@@ -68,26 +70,37 @@
           $mapNames .= "<li>".key($mapArray) . " - " . $_SESSION["maps"][$key][key($mapArray)] . "</li>\n";
         }
         $mapNames .= "</ul></div>";
+
+        $sortedNames = "<div style='display:block;'><ul>";
+        $diff = $_SESSION["choose"];
+        foreach ($diff as $key => $mapArray) {
+          $sortedNames .= "<li>".$key . " - " . $mapArray . "</li>\n";
+        }
+        $sortedNames .= "</ul></div>";
         ?>
         <div class="row">
           <div class="col-lg-4">
-          <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">  
-            <h2>Mapas Disponíveis:</h2>
-              <?= $mapNames ?>
-              <br><br>
-              <input type="submit" class="btn btn-default" name="escolher" value="Escolher Fase!">  
-              <input type="submit" class="btn btn-danger" name="resetar" value="Resetar Aplicativo!">  
-          </form>
-        </div>
-      <div class="col-lg-4">
-        <?php if (isset($chosenMap)) { ?>
-          <?= $chosenMap ?>
-          <br>
-          <a class="btn btn-primary" href="steam://rungameid/240// +map <?= $randomMapCsName ?>">
-            Abrir o Mapa Automaticamente
-          </a>
-        <?php } ?>
-        </div>
+            <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">  
+              <h2>Mapas Disponíveis:</h2>
+                <?= $mapNames ?>
+                <br><br>
+                <input type="submit" class="btn btn-default" name="escolher" value="Escolher Fase!">  
+                <input type="submit" class="btn btn-danger" name="resetar" value="Resetar Aplicativo!">  
+            </form>
+          </div>
+          <div class="col-lg-4">
+          <?php if (isset($chosenMap)) { ?>
+            <?= $chosenMap ?>
+            <br>
+            <a class="btn btn-primary" href="steam://rungameid/240// +map <?= $randomMapCsName ?>">
+              Abrir o Mapa Automaticamente
+            </a>
+          <?php } ?>
+          </div>
+          <div class="col-lg-4">
+              <h2>Mapas Sorteados:</h2>
+              <?= $sortedNames ?>
+          </div>
         </div>
     <script type="text/javascript" src="/js/jquery.min.js"></script>
     <script type="text/javascript" src="/js/bootstrap.min.js"></script>
