@@ -65,7 +65,7 @@
               initMaps();
             }
         }
-        $mapNames = "<div style='display:block;height:338px'><ul>";
+        $mapNames = "<div style='display:block;height:338px'><ul style='list-style-type: decimal'>";
         foreach ($_SESSION["maps"] as $key => $mapArray) {
           $mapNames .= "<li>".key($mapArray) . " - " . $_SESSION["maps"][$key][key($mapArray)] . "</li>\n";
         }
