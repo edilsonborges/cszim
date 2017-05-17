@@ -1,0 +1,15 @@
+.row {
+	margin-top: -20px;
+}
+
+.img-circle {
+	width: 80px;
+	height: 80px;
+	transition: 500ms;
+}
+
+.img-circle:hover {
+	width: 115px;
+	height: 115px;
+	transition: 500ms;
+}

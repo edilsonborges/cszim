@@ -7,6 +7,7 @@
     <link rel="icon" href="img/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/cszim.css">
   </head>
   <body>
     <nav class="navbar navbar-inverse">
@@ -71,7 +72,7 @@
         }
         $mapNames .= "</ul></div>";
 
-        $sortedNames = "<div class='row'>";
+        $sortedNames = "<div class='row'><br>";
         $diff = $_SESSION["choose"];
         foreach ($diff as $key => $mapArray) {
           $chosenName = (strlen($key) > 13) ? substr($key,0,10).'...' : $key;
@@ -108,13 +109,13 @@
           <div class="col-lg-12">
             <h2>Matadores:</h2>
           </div>
-          <div class="col-lg-12" align="center">
-            <img src='img/users/danilo.jpeg' width='115px' height='115px' class='img-circle'>
-            <img src='img/users/edilson.jpeg' width='115px' height='115px' class='img-circle'>
-            <img src='img/users/murillo.jpeg' width='115px' height='115px' class='img-circle'>
-            <img src='img/users/naiara.jpeg' width='115px' height='115px' class='img-circle'>
-            <img src='img/users/ricardo.jpeg' width='115px' height='115px' class='img-circle'>
-            <img src='img/users/wemerson.jpeg' width='115px' height='115px' class='img-circle'>
+          <div class="col-lg-12" align="center" style="margin-top: -55px">
+            <a href="https://github.com/danilolm" target="_blank"><img src='img/users/danilo.jpeg' class='img-circle'></a>
+            <a href="https://github.com/edilsonborges" target="_blank"><img src='img/users/edilson.jpeg' class='img-circle'></a>
+            <a href="https://github.com/murparreira" target="_blank"><img src='img/users/murillo.jpeg' class='img-circle'></a>
+            <a href="https://github.com/nnayara7" target="_blank"><img src='img/users/naiara.jpeg' class='img-circle'></a>
+            <a href="https://github.com/rpulice" target="_blank"><img src='img/users/ricardo.jpeg' class='img-circle'></a>
+            <a href="https://github.com/wpsouto" target="_blank"><img src='img/users/wemerson.jpeg' class='img-circle'></a>
           </div>
         </div>
     <script type="text/javascript" src="/js/jquery.min.js"></script>
